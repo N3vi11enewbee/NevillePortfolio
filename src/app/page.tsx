@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [hoveredItem, setHoveredItem] = useState(null);
-
+  const [hoveredItem, setHoveredItem] = useState<"about" | "projects" | "experience" | null>(null);
+  
   const info = {
     about: "This is about me information.",
     projects: "This is projects information.",
