@@ -1,10 +1,11 @@
 'use client'
 
+import Link from 'next/link';
 import { useState } from "react";
 
 export default function Home() {
-  const [hoveredItem, setHoveredItem] = useState(null);
-
+  const [hoveredItem, setHoveredItem] = useState<"about" | "projects" | "experience" | null>(null);
+  
   const info = {
     about: "This is about me information.",
     projects: "This is projects information.",
@@ -22,27 +23,33 @@ export default function Home() {
         </div>
 
         <div className="flex space-x-8 text-2xl text-black dark:text-white">
-          <div
-            className="hover:underline cursor-pointer"
-            onMouseEnter={() => setHoveredItem("about")}
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            About Me
-          </div>
-          <div
-            className="hover:underline cursor-pointer"
-            onMouseEnter={() => setHoveredItem("projects")}
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            Projects
-          </div>
-          <div
-            className="hover:underline cursor-pointer"
-            onMouseEnter={() => setHoveredItem("experience")}
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            Experience
-          </div>
+          <Link href="/about">
+            <div
+              className="hover:underline cursor-pointer"
+              onMouseEnter={() => setHoveredItem('about')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              About Me
+            </div>
+          </Link>
+          <Link href="/projects">
+            <div
+              className="hover:underline cursor-pointer"
+              onMouseEnter={() => setHoveredItem('projects')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              Projects
+            </div>
+          </Link>
+          <Link href="/experience">
+            <div
+              className="hover:underline cursor-pointer"
+              onMouseEnter={() => setHoveredItem('experience')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              Experience
+            </div>
+          </Link>
         </div>
       </div>
 
